@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        p
+        {
+            text-decoration-color: #4169e1;
+            margin: 5px;
+        }
+        body
+        {
+            background-color: azure;
+        }
+        input
+        {
+            align-items: center;
+        }
+        h1
+            {
+                color: #4169e1;
+                text-align: center;
+                font-size: 50px;
+                font-family: verdana; 
+                margin:30px;
+                margin:30px;
+             }
+        input[type="button"]
+            {
+                color: steelblue;
+                background-color: bisque;
+                margin: 7px;
+                padding: 7px;
+                font-size: 15px;
+                font-family: verdana;
+                font-weight: bold;
+                border-radius: 5px;
+                margin-top: 30px;
+            }
+        input[type="text"]
+        {
+            margin:10px;
+            padding:7px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        div.main
+        {
+            background-color: steelblue;
+                position: absolute;
+                top:55%;
+                left:50%;
+                width:380px;
+                height:400px;
+                margin:-200px -190px;
+                border-radius: 5px;
+        }
+        div.up
+        {
+            background-color: #4169e1;
+            position: relative;
+            height:200px;
+            width:100%;
+            text-align: center;
+        }
+        div.mid
+        {
+            background-color: powderblue;
+            position:relative;
+            height:100px;
+            width:100%;
+            text-align: center;
+        }
+        div.down
+        {
+            height:100px;
+            width:100%;
+            background-color:#4169e1;
+            position: relative;
+            text-align: center;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1><b>Converter</b></h1>
+    <p><center><b>INPUT FORMAT=> For temperature conversion use:</b></center></p>
+    <p><center><b>K for Kelvin, C  for Celsius and F for Fahrenheit.</b></center></p>
+    <div class="main">
+        <div class="up">
+            <input type="text" name="tf" id="tf" placeholder="From">
+            <input type="text" name="tt" id="tt" placeholder="To">
+            <input type="text" name="tv" id="tv" placeholder="Value">
+        </div>
+        <div class="mid">
+            <input type="button" value="Convert Temperature" onclick='mt()'>
+            <input type="button" value="Convert Base" onclick='mf()'>
+        </div>
+        <div class="down">
+            <input type="text" name="tc" id="demo" placeholder="Converted value">
+        </div>
+    </div>
+    <script>
+
+            function mf()
+            {
+              var tf = document.getElementById('tf').value;
+              var tt = document.getElementById('tt').value;
+              var tv = document.getElementById('tv').value;
+              var x=parseInt(tv,tf);
+              var y=x.toString(tt);
+              document.getElementById('demo').value=y;
+              document.getElementById("tf").value='';
+              document.getElementById("tv").value='';
+              document.getElementById("tt").value='';
+            }
+            function mt()
+            {
+              var tf = document.getElementById('tf').value;
+              var tt = document.getElementById('tt').value;
+              var tv = document.getElementById('tv').value;
+              if (tf=="K" && tt=="C")
+                  document.getElementById('demo').value=tv-273;
+              if (tt=="K" && tf=="C")
+                  document.getElementById('demo').value=tv+273;
+              if (tt=="F" && tf=="C")
+                  document.getElementById('demo').value=(tv-32)/1.8;
+
+              if (tf=="F" && tt=="C")
+                  document.getElementById('demo').value=(tv*1.8) + 32;
+              if (tt=="K" && tf=="F")
+                  document.getElementById('demo').value=(tv*1.8)+32+273;
+              if (tf=="K" && tt=="F")
+                  document.getElementById('demo').value=(tv-32)/1.8 + 273;
+              document.getElementById("tf").value='';
+              document.getElementById("tv").value='';
+              document.getElementById("tt").value='';
+
+
+            }
+    </script>
+    
+    
+    
+</body>
+</html>
